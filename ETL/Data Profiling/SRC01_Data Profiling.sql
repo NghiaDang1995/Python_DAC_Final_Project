@@ -14,7 +14,7 @@ WITH cleaned_base AS (
 -- Thống kê số lượng dòng thiếu (missing/null) cho từng cột
 SELECT 
     COUNT(*) AS total_rows,
-    (COUNT(*) - COUNT(order_id) AS missing_order_id,
+    COUNT(*) - COUNT(order_id) AS missing_order_id,
     COUNT(*) - COUNT(customer_id) AS missing_customer_id,
     COUNT(*) - COUNT(employee_id) AS missing_employee_id,
     COUNT(*) - COUNT(product_id) AS missing_product_id,

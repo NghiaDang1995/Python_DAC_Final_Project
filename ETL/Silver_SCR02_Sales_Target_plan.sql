@@ -44,7 +44,10 @@ pl_v2 AS (
     WHERE plan_version = 'v2'
 )
 SELECT 
-    COALESCE(pl_v2.plan_version, pl_v1.plan_version) as plan_version,   
+    COALESCE(pl_v2.plan_version, pl_v1.plan_version) as plan_version,
+    coalesce(pl_v2.version_date,pl_v1.version_date) as version_date,
+    coalesce(pl_v2.effective_from,pl_v1.effective_from) as effective_from,
+    coalesce(pl_v2.effective_to,pl_v1.effective_from) as effective_to,
     COALESCE(pl_v2.employee_id, pl_v1.employee_id) AS employee_id,
     COALESCE(pl_v2.employee_name, pl_v1.employee_name) AS employee_name,
     COALESCE(pl_v2.region, pl_v1.region) AS region,
